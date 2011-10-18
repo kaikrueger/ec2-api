@@ -1,0 +1,49 @@
+ec2-api
+
+The C++ ec2-api enables developpers top build solutions for Amazon
+Simple Storage Service (Amazon S3) and Amazon Elastic Compute Cloud
+(Amazon EC2). It is based on the concept of the AWS SDK for PHP
+(http://aws.amazon.com/documentation/sdkforphp/)
+
+The ec2-api requirements:
+
+* the communication part is using libcurl
+  (http://curl.haxx.se/libcurl/)
+* the cryptography part is using botan 
+  (http://botan.randombit.net/)
+* the xml parsing of the message is done with rapidxml.
+  a version of rapidxml is included in the source tree
+  (http://rapidxml.sourceforge.net/)
+* boost 1.36 or newer
+* cmake 2.6 or newer
+* cppunit
+
+
+## Signing up for Amazon Web Services
+
+
+## Source
+
+
+## Building ec2-api
+
+* download and build botan. Assume botan ist installed in <botandir>
+* if boost is not installed, build an install boost into <bootroot>
+* if libcurl is not installed, build an install libcurl into <curldir>
+* untar the source to <sourcedir>
+* create a build directory somewhere lets say <builddir>
+* cd to <builddir> and run 
+
+  cmake [-DBOOST_ROOT=<boostroot>] \
+        -DBOTAN_HOME=<botandir> \
+        -DCMAKE_INSTALL_PREFIX=<instdir> \
+        <sourcedir>
+  make
+  make tests
+  make install
+
+  to run the tests, the EC2_ACCESS_KEY and the EC2_SECRET_KEY are
+  required.
+  To set the keys, run cmake with the options
+  -DEC2_ACCESS_KEY="<access_key>"
+  -DEC2_SECRET_KEY="<secret_key>"
