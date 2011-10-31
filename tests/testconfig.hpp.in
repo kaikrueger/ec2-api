@@ -1,0 +1,22 @@
+/***********************************************************************/
+/** @file testconfig.hpp.in
+ *
+ *  @author Kai Krueger
+ *  @date   2011-09-28
+ *  @email  kai.krueger@itwm.fraunhofer.de
+ *
+ * (C) Fraunhofer ITWM
+ **/
+/*---------------------------------------------------------------------*/
+
+#ifndef _testconfig_hpp_in_
+#define _testconfig_hpp_in_
+
+
+#define EC2_ACCESS_KEY "@EC2_ACCESS_KEY@"
+
+#define EC2_SECRET_KEY "@EC2_SECRET_KEY@"
+
+#define DATADIR "@CMAKE_CURRENT_SOURCE_DIR@/data"
+
+#endif /* _testconfig_hpp_in_ */

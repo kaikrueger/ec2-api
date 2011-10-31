@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DescribeImagesResponse xmlns="http://ec2.amazonaws.com/doc/2011-07-15/">
+    <requestId>bde11811-8945-4a04-83de-10a1167f5ca6</requestId>
+    <imagesSet>
+        <item>
+            <imageId>ami-00857e69</imageId>
+            <imageLocation>itwm_kk/genlm6/image.manifest.xml</imageLocation>
+            <imageState>available</imageState>
+            <imageOwnerId>564113121057</imageOwnerId>
+            <isPublic>false</isPublic>
+            <architecture>x86_64</architecture>
+            <imageType>machine</imageType>
+            <kernelId>aki-fd15f694</kernelId>
+            <ramdiskId>ari-7b739e12</ramdiskId>
+            <rootDeviceType>instance-store</rootDeviceType>
+            <rootDeviceName>/dev/sda1</rootDeviceName>
+            <blockDeviceMapping/>
+            <virtualizationType>paravirtual</virtualizationType>
+            <hypervisor>xen</hypervisor>
+        </item>
+    </imagesSet>
+</DescribeImagesResponse>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+  <Errors>
+  <Error>
+  <Code>UnknownParameter</Code>
+  <Message>The parameter GroupName is not recognized</Message>
+  </Error>
+  </Errors>
+  <RequestID>23be1217-0935-426d-80e4-6ebdcc9e5928</RequestID>
+</Response>

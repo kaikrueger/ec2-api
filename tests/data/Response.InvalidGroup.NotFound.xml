@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Response><Errors><Error><Code>InvalidGroup.NotFound</Code>
+   <Message>The security group 's4cloudXX' does not exist</Message>
+</Error></Errors>
+<RequestID>61765bbb-c9f7-4758-9fc6-72c17061466d</RequestID>
+</Response>

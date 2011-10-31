@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+  <Errors>
+    <Error>
+      <Code>AuthFailure</Code>
+      <Message>AWS was not able to validate the provided access
+      credentials</Message>
+    </Error>
+  </Errors>
+  <RequestID>dc621159-6bed-44d7-b67c-7f8c6cf26aa7</RequestID>
+</Response>

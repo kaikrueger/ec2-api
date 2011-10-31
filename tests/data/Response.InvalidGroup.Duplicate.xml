@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Response><Errors><Error><Code>InvalidGroup.Duplicate</Code>
+  <Message>The security group 's4cloudXX' already exists</Message>
+</Error>
+</Errors>
+<RequestID>4a0e58e1-9246-47c9-afff-586f61436127</RequestID>
+</Response>
