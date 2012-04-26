@@ -107,6 +107,8 @@ bool ec2Command::_parse_commandline(
       ("user", po::value< std::string >())
       ("access_key", po::value< std::string >())
       ("secret_key", po::value< std::string >())
+      ("user_id", po::value< std::string >())
+      ("jvm_args", po::value< std::string >())
       ;
     po::variables_map vmEnv;
     po::store(po::parse_environment(env, "EC2_"), vmEnv);

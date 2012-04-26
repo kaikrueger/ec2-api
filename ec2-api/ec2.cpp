@@ -103,6 +103,27 @@ CFRuntime::CFRuntime(
 CFRuntime::~CFRuntime() {
 }
 
+void parse_url(const std::string& url, std::string& domain, std::string& path)
+{
+  domain=std::string();
+  path=std::string();
+
+  std::string::const_iterator p=url.begin();
+  int state=0;
+  while(p!=url.end())
+  {
+    switch(state)
+    {
+      case 0: if(*p=='/') {state=1;p++;}
+         break;
+      case 1: if(*p!='/') {domain+=*p;} else {state=2;path+='/';}
+         break;
+      case 2: path+=*p; 
+    }
+    p++;
+  }
+}
+
 xml::parse::type::EC2Response_t CFRuntime::authenticate(
   std::string action
   , const Map_Type &opt
@@ -115,7 +136,7 @@ xml::parse::type::EC2Response_t CFRuntime::authenticate(
   boost::gregorian::date_facet *df = new boost::gregorian::date_facet("%Y-%m-%dT"); 
   std::ostringstream ss;
   ss.imbue(std::locale(std::cout.getloc(), df)); 
-  ss <<  pt.date() << pt.time_of_day() << "Z" ; 
+  ss <<  pt.date() << pt.time_of_day(); //<< "Z" ; 
   std::string timestamp = ss.str();
   
 
@@ -147,8 +168,12 @@ xml::parse::type::EC2Response_t CFRuntime::authenticate(
   std::string canonical_query_string = to_signable_string(query);
 
   //
-  std::string host_header(domain);
-  std::string request_uri("/");
+
+
+  std::string host_header;
+  std::string request_uri;
+  parse_url(domain,host_header,request_uri);
+  request_uri+="/";
   
   if( "2" == signature_version ) {
     std::ostringstream string_to_sign;
@@ -162,8 +187,8 @@ xml::parse::type::EC2Response_t CFRuntime::authenticate(
   //print(query);
   std::string querystring=to_query_string(query);
   std::ostringstream req;
-  req << "http://" << host_header << "/?" << querystring;
-  
+  req <<"http://"<< host_header <<request_uri<< "?" << querystring;
+ 
   _request->set_request_url(req.str());
   _request->send_request(_observer);
   
@@ -266,8 +291,8 @@ std::string CFRuntime::to_signable_string(
     if(it!=arr.begin()) ret << "&";
     ret << encode_signature2( (*it).first) << "=";
     ret << encode_signature2( (*it).second);
-  }
-
+   }
+ 
   return ret.str();
 }
 
